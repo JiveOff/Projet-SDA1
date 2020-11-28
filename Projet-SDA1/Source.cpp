@@ -87,8 +87,6 @@ void initialiser(ConteneurBoggle& t, unsigned int capacite, unsigned int pas) {
 
 	t.tab = new Item[t.capacite];
 
-	cout << "Allocation initiale de " << capacite * sizeof(Item) << " octets (" << capacite << " item(s))" << endl;
-
 }
 
 void detruire(ConteneurBoggle& t) {
@@ -116,8 +114,6 @@ void ecrire(ConteneurBoggle& t, unsigned int pos, const Item& it) {
 
 		t.tab = newT;
 		t.capacite = newTaille;
-
-		cout << "Extension - Allocaton/Réallocation de " << newTaille * sizeof(Item) << " octets (" << newTaille << " items)." << endl;
 
 	}
 
