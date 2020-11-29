@@ -39,7 +39,7 @@ Item saisie() {
 	return it;
 }
 
-unsigned int calculPoint(Item it) {
+unsigned int calculPoint(const Item it) {
 
 	unsigned int motLength = strlen(it.mot);
 
@@ -63,7 +63,7 @@ unsigned int calculPoint(Item it) {
 	}
 }
 
-unsigned int calculPointConteneur(ConteneurBoggle& t, unsigned int nbMots) {
+unsigned int calculPointConteneur(const ConteneurBoggle& t, unsigned int nbMots) {
 
 	unsigned int total = 0;
 
@@ -72,6 +72,19 @@ unsigned int calculPointConteneur(ConteneurBoggle& t, unsigned int nbMots) {
 	}
 
 	return total;
+}
+
+void ordonnerListe(ConteneurBoggle& t, unsigned int nbMots) {
+	char temp[31];
+
+	for (int i = 0; i < nbMots; i++) {
+		for (int j = i + 1; j < nbMots; j++)
+			if (strcmp(t.tab[i].mot, t.tab[j].mot) > 0) {
+				strcpy_s(temp, t.tab[i].mot);
+				strcpy_s(t.tab[i].mot, t.tab[j].mot);
+				strcpy_s(t.tab[j].mot, temp);
+			}
+	}
 }
 
 /*
@@ -121,6 +134,10 @@ void ecrire(ConteneurBoggle& t, unsigned int pos, const Item& it) {
 
 }
 
+void afficher(ConteneurBoggle& t, unsigned int pos) {
+	cout << lire(t, pos).mot << endl;
+}
+
 /*
 * Main
 */
@@ -138,15 +155,21 @@ int main() {
 	while (true) {
 
 		it = saisie();
-		
+		ecrire(c, nbMots, it);
+
+		nbMots++;
+
 		if (strcmp(it.mot, "*") == 0) {
-			cout << calculPointConteneur(c, nbMots);
 			break;
 		}
 
-		ecrire(c, nbMots, it);
-		nbMots++;
+	}
 
+	cout << calculPointConteneur(c, nbMots);
+	ordonnerListe(c, nbMots);
+
+	for (int i = 0; i < nbMots; ++i) {
+		afficher(c, i);
 	}
 
 	detruire(c);
