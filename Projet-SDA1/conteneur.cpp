@@ -50,23 +50,32 @@ bool ecrire(ConteneurBoggle& t, int pos, const Item& it) {
 	}
 
 	t.tab[pos] = it;
+	t.tab[pos].compteur = 1;
 	return true;
 
 }
 
 void afficher(const ConteneurBoggle& t, int pos) {
-	std::cout << lire(t, pos).mot << std::endl;
+	if(lire(t, pos).compteur > 0) std::cout << lire(t, pos).mot << std::endl;
 }
 
-void ordonner(ConteneurBoggle& t, int nbMots) {
-	for (int j = 0; j < nbMots; ++j) {
-		for (int i = 0; i < (nbMots - 1); ++i) {
+void ordonner(ConteneurBoggle& t) {
+	for (int j = 0; j < t.nbMots; ++j) {
+		for (int i = 0; i < (t.nbMots - 1); ++i) {
 			if (strcmp(t.tab[i].mot, t.tab[i + 1].mot) > 0) {
 				Item tmp;
 				strcpy_s(tmp.mot, t.tab[i].mot);
 				strcpy_s(t.tab[i].mot, t.tab[i + 1].mot);
 				strcpy_s(t.tab[i + 1].mot, tmp.mot);
 			}
+		}
+	}
+}
+
+void filtrer(ConteneurBoggle& c_1, ConteneurBoggle& c_2, bool (*filtre)(ConteneurBoggle& t, Item& it)) {
+	for (int i = 0; i < c_2.nbMots; ++i) {
+		if (!filtre(c_1, c_2.tab[i])) {
+			c_2.tab[i].compteur = 0;
 		}
 	}
 }

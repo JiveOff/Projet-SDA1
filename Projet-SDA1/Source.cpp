@@ -1,6 +1,6 @@
 /*
 * Projet-SDA1 - Sprint 2
-* 
+*
 * @author Antoine Banha <antoine@jiveoff.fr>
 * @author Rayan Atrouni <rayan.atrouni@etu.u-paris.fr>
 */
@@ -15,6 +15,10 @@
 
 using namespace std;
 
+bool filtre(ConteneurBoggle& t, Item& it) {
+	return (getByItem(t, it) == -1);
+}
+
 /*
 * Main
 */
@@ -23,11 +27,10 @@ int main() {
 
 	setlocale(LC_ALL, "");
 
-	ConteneurBoggle c;
-	initialiser(c, 1, 2);
+	ConteneurBoggle c_1;
+	initialiser(c_1, 1, 2);
 
 	Item it;
-	int nbMots = 0;
 
 	while (true) {
 
@@ -37,18 +40,38 @@ int main() {
 			break;
 		}
 
-		nbMots += ecrire(c, nbMots, it);
+		c_1.nbMots += ecrire(c_1, c_1.nbMots, it);
 
 	}
 
-	ordonner(c, nbMots);
+	ordonner(c_1);
 
-	for (int i = 0; i < nbMots; ++i) {
-		afficher(c, i);
+	ConteneurBoggle c_2;
+	initialiser(c_2, 1, 2);
+
+	while (true) {
+
+		it = saisie();
+
+		if (strcmp(it.mot, "*") == 0) {
+			break;
+		}
+
+		c_2.nbMots += ecrire(c_2, c_2.nbMots, it);
+
+	}
+
+	ordonner(c_2);
+
+	filtrer(c_1, c_2, &filtre);
+
+	for (int i = 0; i < c_2.nbMots; ++i) {
+		afficher(c_2, i);
 	}
 	cout << "*" << endl;
 
-	detruire(c);
+	detruire(c_1);
+	detruire(c_2);
 
 	return 0;
 

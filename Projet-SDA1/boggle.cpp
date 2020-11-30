@@ -27,11 +27,11 @@ int calculPoint(const Item it) {
 	}
 }
 
-int calculPointConteneur(const ConteneurBoggle& t, int nbMots) {
+int calculPointConteneur(const ConteneurBoggle& t) {
 
 	int total = 0;
 
-	for (int i = 0; i < nbMots; ++i) {
+	for (int i = 0; i < t.nbMots; ++i) {
 		total += calculPoint(lire(t, i));
 	}
 
