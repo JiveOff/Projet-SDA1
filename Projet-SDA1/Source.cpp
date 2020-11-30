@@ -16,7 +16,7 @@
 using namespace std;
 
 bool filtre(ConteneurBoggle& t, Item& it) {
-	return (getByItem(t, it) == -1);
+	return (getByItem(t, it) > -1);
 }
 
 /*
