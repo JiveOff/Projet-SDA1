@@ -50,7 +50,7 @@ void afficher(const ConteneurBoggle& t, int pos) {
 	std::cout << lire(t, pos).mot << std::endl;
 }
 
-ConteneurBoggle cleanDuplicates(ConteneurBoggle& t, int nbMots) {
+void cleanDuplicates(ConteneurBoggle& t, int nbMots) {
 
 	ConteneurBoggle c;
 	initialiser(c, 1, 2);
@@ -62,9 +62,14 @@ ConteneurBoggle cleanDuplicates(ConteneurBoggle& t, int nbMots) {
 		for (int i = 0; i < (nbMots - 1); ++i) {
 			if (strcmp(t.tab[i].mot, t.tab[j + 1].mot) != 0) {
 				ecrire(c, nbRetotal, t.tab[i]);
+				nbRetotal++;
 			}
 		}
 	}
+
+	detruire(t);
+	t.tab = c.tab;
+	t.capacite = c.capacite;
 }
 
 void ordonner(ConteneurBoggle& t, int nbMots) {
