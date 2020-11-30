@@ -24,7 +24,14 @@ Item lire(const ConteneurBoggle& t, int pos) {
 	return t.tab[pos];
 }
 
-void ecrire(ConteneurBoggle& t, int pos, const Item& it) {
+bool ecrire(ConteneurBoggle& t, int pos, const Item& it) {
+	
+	int indice = getByItem(t, it);
+
+	if (indice > -1) {
+		t.tab[indice].compteur++;
+		return false;
+	}
 
 	if (pos >= t.capacite) {
 
@@ -43,33 +50,12 @@ void ecrire(ConteneurBoggle& t, int pos, const Item& it) {
 	}
 
 	t.tab[pos] = it;
+	return true;
 
 }
 
 void afficher(const ConteneurBoggle& t, int pos) {
 	std::cout << lire(t, pos).mot << std::endl;
-}
-
-void cleanDuplicates(ConteneurBoggle& t, int nbMots) {
-
-	ConteneurBoggle c;
-	initialiser(c, 1, 2);
-
-	Item it;
-	int nbRetotal = 0;
-
-	for (int j = 0; j < nbMots; ++j) {
-		for (int i = 0; i < (nbMots - 1); ++i) {
-			if (strcmp(t.tab[i].mot, t.tab[j + 1].mot) != 0) {
-				ecrire(c, nbRetotal, t.tab[i]);
-				nbRetotal++;
-			}
-		}
-	}
-
-	detruire(t);
-	t.tab = c.tab;
-	t.capacite = c.capacite;
 }
 
 void ordonner(ConteneurBoggle& t, int nbMots) {

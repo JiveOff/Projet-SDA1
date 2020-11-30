@@ -36,9 +36,8 @@ int main() {
 		if (strcmp(it.mot, "*") == 0) {
 			break;
 		}
-		ecrire(c, nbMots, it);
 
-		nbMots++;
+		nbMots += ecrire(c, nbMots, it);
 
 	}
 

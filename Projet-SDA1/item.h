@@ -2,6 +2,7 @@
 
 typedef struct Mot {
 	char mot[31];
+	int compteur = 0;
 } Item;
 
 struct ConteneurBoggle {
