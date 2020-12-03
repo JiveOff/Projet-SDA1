@@ -1,13 +1,5 @@
 #pragma once
 
-typedef struct Mot {
-	char mot[31];
-	int compteur = 0;
-} Item;
+#include "Mot.h"
 
-struct ConteneurBoggle {
-	int capacite;
-	int pasExtension;
-	Mot* tab;
-	int nbMots = 0;
-};
+typedef Mot Item;

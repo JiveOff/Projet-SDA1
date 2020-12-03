@@ -146,7 +146,9 @@
   <ItemGroup>
     <ClInclude Include="boggle.h" />
     <ClInclude Include="conteneur.h" />
+    <ClInclude Include="ConteneurBoggle.h" />
     <ClInclude Include="item.h" />
+    <ClInclude Include="Mot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "item.h"
+#include "ConteneurBoggle.h"
 
 void initialiser(ConteneurBoggle& t, int capacite, int pas);
 void detruire(ConteneurBoggle& t);

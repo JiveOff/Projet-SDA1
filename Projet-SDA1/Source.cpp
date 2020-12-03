@@ -62,7 +62,7 @@ int main() {
 	}
 
 	ordonner(c_2);
-
+	
 	filtrer(c_1, c_2, &filtre);
 
 	for (int i = 0; i < c_2.nbMots; ++i) {
