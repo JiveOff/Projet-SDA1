@@ -139,16 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="boggle.cpp" />
-    <ClCompile Include="conteneur.cpp" />
+    <ClCompile Include="BoggleUtils.cpp" />
+    <ClCompile Include="ConteneurTDE.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Liste.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="boggle.h" />
-    <ClInclude Include="conteneur.h" />
-    <ClInclude Include="ConteneurBoggle.h" />
-    <ClInclude Include="item.h" />
-    <ClInclude Include="Mot.h" />
+    <ClInclude Include="BoggleUtils.h" />
+    <ClInclude Include="ConteneurTDE.h" />
+    <ClInclude Include="ConteneurTDE_s.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Item_t.h" />
+    <ClInclude Include="Liste.h" />
+    <ClInclude Include="Liste_s.h" />
+    <ClInclude Include="Mot_s.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

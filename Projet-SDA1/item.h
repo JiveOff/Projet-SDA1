@@ -1,5 +1,5 @@
 #pragma once
 
-#include "Mot.h"
+#include "Item_t.h"
 
-typedef Mot Item;
+Item saisie();
