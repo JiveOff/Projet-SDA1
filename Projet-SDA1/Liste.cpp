@@ -28,7 +28,7 @@ Item lire(const Liste& l, unsigned int pos) {
 	return lire(l.c, pos);
 }
 
-void ecrire(Liste& l, unsigned int pos, const Item& it) {
+void ecrire(Liste& l, unsigned int pos, const Item& it, bool verif = false) {
 	assert(pos<l.nb);
 	ecrire(l.c, pos, it);
 }	
@@ -98,7 +98,7 @@ void ordonner(Liste& l) {
 	}
 }
 
-int getByItem(const Liste& l, const Item& it) {
+unsigned int getByItem(const Liste& l, const Item& it) {
 	for (unsigned int i = 0; i < l.nb; ++i) {
 		if (strcmp(l.c.tab[i].mot, it.mot) == 0) {
 			return i;
@@ -122,4 +122,16 @@ Liste formeCanonique(Liste& l) {
 	ordonner(newL);
 
 	return newL;
+}
+
+unsigned int occurences(const Liste& l, const Item& it) {
+	unsigned int compteur = 0;
+
+	for (unsigned int i = 0; i < l.nb; ++i) {
+		if (strcmp(l.c.tab[i].mot, it.mot) == 0) {
+			compteur++;
+		}
+	}
+
+	return compteur;
 }

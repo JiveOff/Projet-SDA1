@@ -10,6 +10,8 @@
 #include <clocale>
 #include <cstring>
 
+#include "ConteneurListe.h"
+
 #include "Liste.h"
 #include "BoggleUtils.h"
 
@@ -123,11 +125,57 @@ void exo4() {
 }
 
 void exo5() {
-	cout << "cinquieme pgm" << endl;
+	
+	ConteneurListe cl;
+	clistes_init(cl, 1, 2);
+
+	while (true) {
+
+		Liste tempL;
+		initialiser(tempL, 1, 2);
+
+		entreeEtoile(tempL);
+
+		if (longueur(tempL) == 0) {
+			detruire(tempL);
+			break;
+		}
+
+		Liste lCanonique = formeCanonique(tempL);
+		detruire(tempL);
+
+		clistes_ecrire(cl, cl.nbListes, lCanonique);
+
+	}
+
+	Liste l = clistes_join(cl);
+
+	Liste lFinal;
+	initialiser(lFinal, 1, 2);
+
+	for (unsigned int i = 0; i < l.nb; ++i) {
+		if (occurences(l, l.c.tab[i]) >= 2) {
+			inserer(lFinal, lFinal.nb, l.c.tab[i]);
+		}
+	}
+
+	detruire(l);
+
+	Liste lCanonique = formeCanonique(lFinal);
+	detruire(lFinal);
+
+	afficherListe(lCanonique);
+
+	detruire(lCanonique);
+
+	clistes_detruire(cl);
+
 }
 
 void exo6() {
-	cout << "sixieme pgm" << endl;
+	
+
+
 }
 
 int main() {

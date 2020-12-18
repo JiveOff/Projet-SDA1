@@ -48,6 +48,9 @@
     <ClCompile Include="BoggleUtils.cpp">
       <Filter>Fichiers sources\utils</Filter>
     </ClCompile>
+    <ClCompile Include="ConteneurListe.cpp">
+      <Filter>Fichiers sources\def</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConteneurTDE.h">
@@ -72,6 +75,12 @@
       <Filter>Fichiers d%27en-tête\utils\boggle</Filter>
     </ClInclude>
     <ClInclude Include="Liste_s.h">
+      <Filter>Fichiers d%27en-tête\structs</Filter>
+    </ClInclude>
+    <ClInclude Include="ConteneurListe.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ConteneurListe_s.h">
       <Filter>Fichiers d%27en-tête\structs</Filter>
     </ClInclude>
   </ItemGroup>

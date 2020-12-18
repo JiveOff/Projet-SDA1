@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BoggleUtils.cpp" />
+    <ClCompile Include="ConteneurListe.cpp" />
     <ClCompile Include="ConteneurTDE.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Liste.cpp" />
@@ -147,6 +148,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoggleUtils.h" />
+    <ClInclude Include="ConteneurListe.h" />
+    <ClInclude Include="ConteneurListe_s.h" />
     <ClInclude Include="ConteneurTDE.h" />
     <ClInclude Include="ConteneurTDE_s.h" />
     <ClInclude Include="Item.h" />

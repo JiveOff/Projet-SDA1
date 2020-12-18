@@ -3,7 +3,6 @@
  * @brief Composant de conteneur d'items de capacité extensible
  */
 
-#include <iostream>
 #include <cassert>
 using namespace std;
 

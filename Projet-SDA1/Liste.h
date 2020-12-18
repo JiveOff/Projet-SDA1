@@ -48,7 +48,7 @@ Item lire(const Liste& l, unsigned int pos);
  * @param[in] it L'item.
  * @pre 0 <= pos < longueur(l).
 */
-void ecrire(Liste& l, unsigned int pos, const Item& it);
+void ecrire(Liste& l, unsigned int pos, const Item& it, bool verif = false);
 
 /**
  * @brief Insérer un élément dans une liste.
@@ -79,6 +79,8 @@ void afficherListe(const Liste& l);
 
 Liste filtrer(Liste& l_1, Liste& l_2, bool (*filtre)(Liste& l, Item& it));
 
-int getByItem(const Liste& l, const Item& it);
+unsigned int getByItem(const Liste& l, const Item& it);
 
 Liste formeCanonique(Liste& l);
+
+unsigned int occurences(const Liste& l, const Item& it);
