@@ -174,7 +174,24 @@ void exo5() {
 
 void exo6() {
 	
+	Liste depart = readGrille();
+	Grille grille = createGrille(depart);
 
+	Liste tempL;
+	initialiser(tempL, 1, 2);
+
+	entreeEtoile(tempL);
+
+	Liste lCanonique = formeCanonique(tempL);
+	detruire(tempL);
+
+	//afficherGrille(grille);
+
+	for (unsigned int i = 0; i < lCanonique.nb; ++i) {
+		if (rechercherMot(grille, lCanonique.c.tab[i])) {
+			afficher(lCanonique, i);
+		}
+	}
 
 }
 

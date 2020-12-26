@@ -48,7 +48,7 @@ Item lire(const Liste& l, unsigned int pos);
  * @param[in] it L'item.
  * @pre 0 <= pos < longueur(l).
 */
-void ecrire(Liste& l, unsigned int pos, const Item& it, bool verif = false);
+void ecrire(Liste& l, unsigned int pos, const Item& it);
 
 /**
  * @brief Insérer un élément dans une liste.
@@ -67,16 +67,38 @@ void inserer(Liste& l, unsigned int pos, const Item& it);
  */
 void supprimer(Liste& l, unsigned int pos);
 
-// TODO: Doc
-
+/**
+ * @brief Ordonner la liste alphabétiquement.
+ * @param[in,out] l La liste.
+ */
 void ordonner(Liste& l);
 
+/**
+ * @brief Insérer les mots jusqu'à la fin d'une liste (mentionnée par une *).
+ * @param[in,out] l La liste.
+ * @pre longueur(l) > 0.
+ */
 void entreeEtoile(Liste& l);
 
-void afficher(const Liste& t, unsigned int pos);
+/**
+ * @brief Affiche le mot à la position pos de la liste.
+ * @param[in] l La liste.
+ * @param[in] pos La position de l'élément.
+ */
+void afficher(const Liste& l, unsigned int pos);
 
+/**
+ * @brief Affiche une liste et mentionne sa fin avec une "*".
+ * @param[in] l La liste.
+ */
 void afficherListe(const Liste& l);
 
+/**
+ * @brief Compare deux listes et retourne une liste en fonction du filtre.
+ * @param[in,out] l_1 La liste.
+ * @param[in,out] l_2 La liste.
+ * @param[in] filtre Fonction permettant de filtrer.
+ */
 Liste filtrer(Liste& l_1, Liste& l_2, bool (*filtre)(Liste& l, Item& it));
 
 unsigned int getByItem(const Liste& l, const Item& it);

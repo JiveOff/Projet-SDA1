@@ -1,10 +1,15 @@
 #pragma once
 
-typedef struct MotGrille {
+typedef struct LettreGrille {
 	bool visite;
 	char lettre;
+} LettreGrille;
+
+struct PositionGrille {
+	int x = 0;
+	int y = 0;
 };
 
 struct Grille {
-	MotGrille grille[4][4];
+	LettreGrille grille[4][4];
 };

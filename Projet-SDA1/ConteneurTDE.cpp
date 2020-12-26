@@ -8,24 +8,24 @@ using namespace std;
 
 #include "ConteneurTDE.h"
 
-void initialiser(ConteneurTDE& c, unsigned int capa, unsigned int p) {
+void tde_initialiser(ConteneurTDE& c, unsigned int capa, unsigned int p) {
 	assert((capa > 0) && (p > 0));
 	c.capacite = capa;
 	c.pasExtension = p;
 	c.tab = new Item[capa];
 }
 
-void detruire(ConteneurTDE& c) {
+void tde_detruire(ConteneurTDE& c) {
 	delete[] c.tab;
 	c.tab = NULL;
 }
 
-Item lire(const ConteneurTDE& c, unsigned int i) {
+Item tde_lire(const ConteneurTDE& c, unsigned int i) {
 	assert(i < c.capacite);
 	return c.tab[i];
 }
 
-void ecrire(ConteneurTDE& c, unsigned int i, const Item& it) {
+void tde_ecrire(ConteneurTDE& c, unsigned int i, const Item& it) {
 	if (i >= c.capacite) {
 		unsigned int newTaille = (i + 1) * c.pasExtension;
 		Item* newT = new Item[newTaille];

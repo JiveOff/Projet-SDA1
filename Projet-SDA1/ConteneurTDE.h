@@ -17,14 +17,14 @@
  * @param [in] p Pas d'extension de capacité.
  * @pre capa > 0 et p > 0.
  */
-void initialiser(ConteneurTDE& c, unsigned int capa, unsigned int p);
+void tde_initialiser(ConteneurTDE& c, unsigned int capa, unsigned int p);
 
 /**
  * @brief Désalloue un conteneur d'items en mémoire dynamique.
  * @see initialiser. 
  * @param[in,out] c Le conteneur d'items.
  */
-void detruire(ConteneurTDE& c); 
+void tde_detruire(ConteneurTDE& c);
 
 /**
  * @brief Lecture d'un item d'un conteneur d'items.
@@ -33,7 +33,7 @@ void detruire(ConteneurTDE& c);
  * @return L'item à la position i.
  * @pre i < c.capacite
  */
-Item lire(const ConteneurTDE& c, unsigned int i);
+Item tde_lire(const ConteneurTDE& c, unsigned int i);
 
 /**
  * @brief Ecrire un item dans un conteneur d'items.
@@ -41,4 +41,4 @@ Item lire(const ConteneurTDE& c, unsigned int i);
  * @param[in] i La position où ajouter/modifier l'item.
  * @param[in] it L'item à écrire.
  */
-void ecrire(ConteneurTDE& c, unsigned int i, const Item& it);
+void tde_ecrire(ConteneurTDE& c, unsigned int i, const Item& it);

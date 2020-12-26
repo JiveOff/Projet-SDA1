@@ -11,12 +11,12 @@
 
 void initialiser(Liste& l, unsigned int capa, unsigned int pas) {
 	assert ((capa>0) && (pas>0));
-	initialiser(l.c, capa, pas);
+	tde_initialiser(l.c, capa, pas);
 	l.nb=0;
 }
  
 void detruire(Liste& l) {
-	detruire(l.c);
+	tde_detruire(l.c);
 }
 
 unsigned int longueur(const Liste& l) {
@@ -25,32 +25,31 @@ unsigned int longueur(const Liste& l) {
 
 Item lire(const Liste& l, unsigned int pos) {
 	assert(pos<l.nb);
-	return lire(l.c, pos);
+	return tde_lire(l.c, pos);
 }
 
-void ecrire(Liste& l, unsigned int pos, const Item& it, bool verif = false) {
+void ecrire(Liste& l, unsigned int pos, const Item& it) {
 	assert(pos<l.nb);
-	ecrire(l.c, pos, it);
-}	
+	tde_ecrire(l.c, pos, it);
+}
 
 void inserer(Liste& l, unsigned int pos, const Item& it) {
 	assert(pos<=l.nb);
 	for (unsigned int i=l.nb; i>pos; i--) {
-		ecrire(l.c, i, lire(l.c, i-1));
+		tde_ecrire(l.c, i, tde_lire(l.c, i-1));
 	}
-	ecrire(l.c, pos, it);
+	tde_ecrire(l.c, pos, it);
 	l.nb++;
 }
 
 void entreeEtoile(Liste& l) {
 	Item it;
-	unsigned int posMots = 0;
 	while (true) {
 		it = saisie();
 		if (strcmp(it.mot, "*") == 0) {
 			break;
 		}
-		inserer(l, posMots, it);
+		inserer(l, 0, it);
 	}
 }
 
@@ -58,11 +57,11 @@ void supprimer(Liste& l, unsigned int pos) {
 	assert((l.nb!=0) && (pos<l.nb));
 	l.nb--;
 	for (unsigned int i=pos; i<l.nb; ++i)
-	   ecrire(l.c, i, lire(l.c,i+1));
+		tde_ecrire(l.c, i, tde_lire(l.c,i+1));
 }
 
-void afficher(const Liste& t, unsigned int pos) {
-	std::cout << lire(t, pos).mot << std::endl;
+void afficher(const Liste& l, unsigned int pos) {
+	std::cout << lire(l, pos).mot << std::endl;
 }
 
 void afficherListe(const Liste& l) {

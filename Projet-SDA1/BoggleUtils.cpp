@@ -47,33 +47,154 @@ Liste readGrille() {
 	initialiser(grille, 1, 2);
 
 	for (unsigned int i = 0; i < 4; ++i) {
-		Item m;
-		std::cin >> m.mot;
-		inserer(grille, )
+		inserer(grille, grille.nb, saisie());
 	}
+
+	return grille;
 
 }
 
 Grille createGrille(Liste& depart) {
 
 	Grille grille;
+	PositionGrille pos;
 
-	int x = 0;
-	int y = 0;
-
-	for (unsigned int x = 0; x < 4; ++x) {
-		Item it = lire(depart, x);
-		for (unsigned int y = 0; y < 4; ++y) {
-			MotGrille m = { false, it.mot[y] };
-			grille.grille[x][y] = m;
+	for (pos.x = 0; pos.x < 4; ++pos.x) {
+		Item it = lire(depart, pos.x);
+		for (pos.y = 0; pos.y < 4; ++pos.y) {
+			LettreGrille m = { false, it.mot[pos.y] };
+			grille.grille[pos.x][pos.y] = m;
 		}
 	}
 
-	for (unsigned int i = 0; i < 4; ++i) {
-		for (unsigned int j = 0; j < 4; ++j) {
-			std::cout << grille.grille[i][j].lettre;
+	detruire(depart);
+
+	return grille;
+
+}
+
+void afficherGrille(const Grille& grille) {
+
+	PositionGrille pos;
+	for (pos.x = 0; pos.x < 4; ++pos.x) {
+		for (pos.y = 0; pos.y < 4; ++pos.y) {
+			std::cout << grille.grille[pos.x][pos.y].lettre;
 		}
 		std::cout << std::endl;
 	}
+
+}
+
+bool rechercherMot(Grille& grille, Item& it) {
+
+	PositionGrille pos;
+	for (pos.x = 0; pos.x < 4; ++pos.x) {
+		for (pos.y = 0; pos.y < 4; ++pos.y) {
+			grille.grille[pos.x][pos.y].visite = false;
+		}
+	}
+
+	pos = { 0, 0 };
+
+	for (pos.x = 0; pos.x < 4; ++pos.x) {
+		for (pos.y = 0; pos.y < 4; ++pos.y) {
+			if (sousRecherche(grille, it, 0, pos)) {
+				//std::cout << "Passed wtf main";
+				return true;
+			}
+		}
+	}
+
+	return false;
+
+}
+
+bool checkLimites(PositionGrille& coord) {
+	return (coord.x > -1 && coord.y > -1 && coord.x < 4 && coord.y < 4);
+}
+
+bool sousRecherche(Grille& grille, Item& it, int pos, PositionGrille& coord) {
+
+	//std::cout << it.mot << std::endl;
+
+	if (pos >= strlen(it.mot)) {
+		//std::cout << "test1" << std::endl;
+		return true;
+	}
+
+	if (!checkLimites(coord)) {
+		//std::cout << "test2" << std::endl;
+		return false;
+	}
+		
+
+	if (grille.grille[coord.x][coord.y].lettre != it.mot[pos]) {
+		//std::cout << "test3" << std::endl;
+		return false;
+	}
+
+	if (grille.grille[coord.x][coord.y].visite == true) {
+		//std::cout << "test4" << std::endl;
+		return false;
+	}
+
+	//std::cout << "Passed at x: " << coord.x << " y: "<< coord.y << std::endl;
+
+	grille.grille[coord.x][coord.y].visite = true;
+
+	PositionGrille pCoord[8];
+	PositionGrille tempCoord;
+	unsigned int nbCoord = 0;
+
+	tempCoord = { coord.x - 1, coord.y - 1 };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	tempCoord = { coord.x - 1, coord.y };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	tempCoord = { coord.x - 1, coord.y + 1 };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	tempCoord = { coord.x, coord.y - 1 };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	tempCoord = { coord.x, coord.y + 1 };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	tempCoord = { coord.x + 1, coord.y - 1 };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	tempCoord = { coord.x + 1, coord.y };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	tempCoord = { coord.x + 1, coord.y + 1 };
+	if (checkLimites(tempCoord)) {
+		pCoord[nbCoord++] = { tempCoord.x, tempCoord.y };
+	}
+
+	for (unsigned int i = 0; i < nbCoord; ++i) {
+		//std::cout << "X: " << pCoord[i].x << " - Y: " << pCoord[i].y << std::endl;
+		if (sousRecherche(grille, it, pos + 1, pCoord[i])) {
+			//std::cout << "Passed wtf";
+			return true;
+		}
+	}
+
+	grille.grille[coord.x][coord.y].visite = false;
+	return false;
 
 }
