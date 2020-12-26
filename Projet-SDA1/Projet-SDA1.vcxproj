@@ -142,6 +142,7 @@
     <ClCompile Include="BoggleUtils.cpp" />
     <ClCompile Include="ConteneurListe.cpp" />
     <ClCompile Include="ConteneurTDE.cpp" />
+    <ClCompile Include="GrilleBoggle_s.h" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Liste.cpp" />
     <ClCompile Include="Source.cpp" />

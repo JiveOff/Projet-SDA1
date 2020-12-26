@@ -51,6 +51,9 @@
     <ClCompile Include="ConteneurListe.cpp">
       <Filter>Fichiers sources\def</Filter>
     </ClCompile>
+    <ClCompile Include="GrilleBoggle_s.h">
+      <Filter>Fichiers d%27en-tête\structs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConteneurTDE.h">
