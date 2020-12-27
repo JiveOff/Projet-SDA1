@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @file ConteneurListe_s.h
+ * @brief Structure d'une liste.
+ */
+
 #include "ConteneurTDE.h"
 
 struct Liste {

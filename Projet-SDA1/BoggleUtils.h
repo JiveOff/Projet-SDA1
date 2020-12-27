@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @file BoggleUtils.h
+ * @brief Utilitaires pour la mise en oeuvre du boggle.
+ */
+
 #include "GrilleBoggle_s.h"
 #include "Liste.h"
 

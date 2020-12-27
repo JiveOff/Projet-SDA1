@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @file ConteneurListe_s.h
+ * @brief Structure du conteneur de listes.
+ */
+
 #include "Liste.h"
 
 /** @brief Conteneur d'items alloués en mémoire dynamique

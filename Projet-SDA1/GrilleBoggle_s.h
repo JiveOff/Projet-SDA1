@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @file GrilleBoggle_s.h
+ * @brief Structure de la grille de boggle.
+ */
+
 typedef struct LettreGrille {
 	bool visite;
 	char lettre;

@@ -1,3 +1,8 @@
+/**
+ * @file BoggleUtils.h
+ * @brief Utilitaires pour la mise en oeuvre du boggle.
+ */
+
 #include <cstring>
 #include <iostream>
 
@@ -187,7 +192,6 @@ bool sousRecherche(Grille& grille, Item& it, int pos, PositionGrille& coord) {
 	}
 
 	for (unsigned int i = 0; i < nbCoord; ++i) {
-		//std::cout << "X: " << pCoord[i].x << " - Y: " << pCoord[i].y << std::endl;
 		if (sousRecherche(grille, it, pos + 1, pCoord[i])) {
 			//std::cout << "Passed wtf";
 			return true;

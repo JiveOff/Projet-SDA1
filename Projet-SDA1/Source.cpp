@@ -1,6 +1,6 @@
 /*
-* Projet-SDA1
-*
+* Projet de SDA
+* @file Source.cpp
 * @author Antoine Banha <antoine@jiveoff.fr>
 * @author Rayan Atrouni <rayan.atrouni@etu.u-paris.fr>
 */
@@ -18,7 +18,7 @@
 using namespace std;
 
 /*
-* Main
+* Structure imposée
 */
 
 void exo1() {
@@ -93,9 +93,6 @@ void exo4() {
 	initialiser(tempL_1, 100, 200);
 
 	entreeEtoile(tempL_1);
-
-	//Liste l_1 = formeCanonique(tempL_1);
-	//detruire(tempL_1);
 
 	Liste tempL_2;
 	initialiser(tempL_2, 1, 2);
@@ -182,8 +179,6 @@ void exo6() {
 	initialiser(l, 100, 200);
 
 	entreeEtoile(l);
-
-	//afficherGrille(grille);
 
 	for (unsigned int i = 0; i < l.nb; ++i) {
 		if (rechercherMot(grille, l.c.tab[i])) {

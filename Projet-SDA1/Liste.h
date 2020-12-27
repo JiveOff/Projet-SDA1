@@ -98,11 +98,34 @@ void afficherListe(const Liste& l);
  * @param[in,out] l_1 La liste.
  * @param[in,out] l_2 La liste.
  * @param[in] filtre Fonction permettant de filtrer.
+ * @return Une liste ayant appliqué le filtre donné.
  */
 Liste filtrer(Liste& l_1, Liste& l_2, bool (*filtre)(Liste& l, Item& it));
 
+/**
+ * @brief Récupérer l'indice d'un item donné dans une liste l.
+ * @param[in] l La liste.
+ * @param[in] it L'item à retrouver.
+ * @return L'index de l'item it dans la liste l.
+ * @pre l.nb > 0
+ */
 unsigned int getByItem(const Liste& l, const Item& it);
 
+/**
+ * @brief Transforme une liste donnée en liste canonique, c'est-à-dire:
+ *	les mots sont triés par ordre alphabétique croissant
+ *	chaque mot n'apparaît d'une unique fois
+ * @param[in] l La liste.
+ * @return La liste transformée.
+ * @pre l.nb > 0
+ */
 Liste formeCanonique(Liste& l);
 
+/**
+ * @brief Compte le nombre de fois qu'un élément apparait dans la liste.
+ * @param[in] l La liste.
+ * @param[in] it L'item permettant la comparaison.
+ * @return Le nombre d'occurences de l'item it dans la liste l.
+ * @pre 0 <= pos <= longueur(l).
+ */
 unsigned int occurences(const Liste& l, const Item& it);

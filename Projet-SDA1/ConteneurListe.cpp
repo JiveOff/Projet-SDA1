@@ -1,6 +1,6 @@
 /**
  * @file ConteneurListe.cpp
- * @brief Composant de conteneur d'items de capacité extensible pour les Listes
+ * @brief Composant de conteneur de listes de capacité extensible.
  */
 
 #include <iostream>

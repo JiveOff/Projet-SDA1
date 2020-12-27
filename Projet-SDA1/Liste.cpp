@@ -60,20 +60,6 @@ void entreeEtoile(Liste& l) {
 	}
 }
 
-/*void entreeEtoile(Liste& l) {
-	Item it;
-	l.nb = 1;
-	while (true) {
-		it = saisie();
-		if (strcmp(it.mot, "*") == 0) {
-			break;
-		}
-		std::cout << it.mot;
-		l.nb++;
-		ecrire(l, l.nb, it);
-	}
-}*/
-
 void supprimer(Liste& l, unsigned int pos) {
 	assert((l.nb!=0) && (pos<l.nb));
 	l.nb--;
@@ -119,6 +105,8 @@ void ordonner(Liste& l) {
 }
 
 unsigned int getByItem(const Liste& l, const Item& it) {
+	assert(l.nb > 0);
+
 	for (unsigned int i = 0; i < l.nb; ++i) {
 		if (strcmp(l.c.tab[i].mot, it.mot) == 0) {
 			return i;

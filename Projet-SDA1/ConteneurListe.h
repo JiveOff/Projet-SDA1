@@ -2,7 +2,7 @@
 
 /**
  * @file ConteneurListe.h
- * @brief Composant d'un conteneur d'items de capacité extensible.
+ * @brief Composant d'un conteneur de listes à capacité extensible.
  */
 
 #include "ConteneurListe_s.h"

@@ -1,3 +1,8 @@
+/**
+ * @file Item.cpp
+ * @brief Utilitaires de manipulation des items.
+ */
+
 #include <iostream>
 #include "Item.h"
 
