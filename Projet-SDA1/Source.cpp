@@ -90,12 +90,12 @@ void exo3() {
 void exo4() {
 	
 	Liste tempL_1;
-	initialiser(tempL_1, 1, 2);
+	initialiser(tempL_1, 100, 200);
 
 	entreeEtoile(tempL_1);
 
-	Liste l_1 = formeCanonique(tempL_1);
-	detruire(tempL_1);
+	//Liste l_1 = formeCanonique(tempL_1);
+	//detruire(tempL_1);
 
 	Liste tempL_2;
 	initialiser(tempL_2, 1, 2);
@@ -106,12 +106,13 @@ void exo4() {
 	detruire(tempL_2);
 
 	auto filtre = [](Liste& l, Item& it) {
-		return (getByItem(l, it) > -1);
+		int index = getByItem(l, it);
+		return (index > -1);
 	};
 
-	Liste l_filtre = filtrer(l_1, l_2, filtre);
+	Liste l_filtre = filtrer(tempL_1, l_2, filtre);
 
-	detruire(l_1);
+	detruire(tempL_1);
 	detruire(l_2);
 
 	Liste l_canonique = formeCanonique(l_filtre);
@@ -177,21 +178,20 @@ void exo6() {
 	Liste depart = readGrille();
 	Grille grille = createGrille(depart);
 
-	Liste tempL;
-	initialiser(tempL, 1, 2);
+	Liste l;
+	initialiser(l, 100, 200);
 
-	entreeEtoile(tempL);
-
-	Liste lCanonique = formeCanonique(tempL);
-	detruire(tempL);
+	entreeEtoile(l);
 
 	//afficherGrille(grille);
 
-	for (unsigned int i = 0; i < lCanonique.nb; ++i) {
-		if (rechercherMot(grille, lCanonique.c.tab[i])) {
-			afficher(lCanonique, i);
+	for (unsigned int i = 0; i < l.nb; ++i) {
+		if (rechercherMot(grille, l.c.tab[i])) {
+			afficher(l, i);
 		}
 	}
+
+	std::cout << "*";
 
 }
 

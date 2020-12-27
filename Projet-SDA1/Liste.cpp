@@ -44,14 +44,35 @@ void inserer(Liste& l, unsigned int pos, const Item& it) {
 
 void entreeEtoile(Liste& l) {
 	Item it;
+	bool t = false;
 	while (true) {
 		it = saisie();
 		if (strcmp(it.mot, "*") == 0) {
 			break;
 		}
-		inserer(l, 0, it);
+		if (t) {
+			t = true;
+			inserer(l, 0, it);
+		}
+		else {
+			inserer(l, l.nb, it);
+		}
 	}
 }
+
+/*void entreeEtoile(Liste& l) {
+	Item it;
+	l.nb = 1;
+	while (true) {
+		it = saisie();
+		if (strcmp(it.mot, "*") == 0) {
+			break;
+		}
+		std::cout << it.mot;
+		l.nb++;
+		ecrire(l, l.nb, it);
+	}
+}*/
 
 void supprimer(Liste& l, unsigned int pos) {
 	assert((l.nb!=0) && (pos<l.nb));
