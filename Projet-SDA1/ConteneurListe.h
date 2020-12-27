@@ -43,6 +43,9 @@ Liste clistes_lire(const ConteneurListe& cl, unsigned int i);
  */
 void clistes_ecrire(ConteneurListe& cl, unsigned int i, const Liste& l);
 
-// TODO: doc
-
-Liste clistes_join(ConteneurListe& cl);
+/**
+ * @brief Rassemble tous les éléments de listes en une seule.
+ * @param[in,out] c Le conteneur de listes.
+ * @return Une liste contenant tous les items des listes du conteneur de listes.
+ */
+Liste clistes_join(const ConteneurListe& cl);

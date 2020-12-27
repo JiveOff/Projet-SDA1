@@ -40,7 +40,7 @@ void clistes_ecrire(ConteneurListe& cl, unsigned int i, const Liste& it) {
 	cl.nbListes++;
 }
 
-Liste clistes_join(ConteneurListe& cl) {
+Liste clistes_join(const ConteneurListe& cl) {
 
 	Liste l;
 	initialiser(l, 1, 2);

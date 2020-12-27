@@ -8,7 +8,7 @@
 
 #include "BoggleUtils.h"
 
-unsigned int calculPoint(Item it) {
+unsigned int calculPoint(const Item it) {
 
 	unsigned int motLength = (unsigned int)strlen(it.mot);
 
@@ -35,7 +35,7 @@ unsigned int calculPoint(Item it) {
 	}
 }
 
-unsigned int calculPointGlobal(Liste& l) {
+unsigned int calculPointGlobal(const Liste& l) {
 
 	unsigned int total = 0;
 
@@ -46,23 +46,17 @@ unsigned int calculPointGlobal(Liste& l) {
 	return total;
 }
 
-Liste readGrille() {
+Grille createGrille() {
 
-	Liste grille;
-	initialiser(grille, 1, 2);
-
-	for (unsigned int i = 0; i < 4; ++i) {
-		inserer(grille, grille.nb, saisie());
-	}
-
-	return grille;
-
-}
-
-Grille createGrille(Liste& depart) {
-
+	Liste depart;
 	Grille grille;
 	PositionGrille pos;
+
+	initialiser(depart, 1, 2);
+
+	for (unsigned int i = 0; i < 4; ++i) {
+		inserer(depart, depart.nb, saisie());
+	}
 
 	for (pos.x = 0; pos.x < 4; ++pos.x) {
 		Item it = lire(depart, pos.x);
@@ -75,18 +69,6 @@ Grille createGrille(Liste& depart) {
 	detruire(depart);
 
 	return grille;
-
-}
-
-void afficherGrille(const Grille& grille) {
-
-	PositionGrille pos;
-	for (pos.x = 0; pos.x < 4; ++pos.x) {
-		for (pos.y = 0; pos.y < 4; ++pos.y) {
-			std::cout << grille.grille[pos.x][pos.y].lettre;
-		}
-		std::cout << std::endl;
-	}
 
 }
 
@@ -104,7 +86,6 @@ bool rechercherMot(Grille& grille, Item& it) {
 	for (pos.x = 0; pos.x < 4; ++pos.x) {
 		for (pos.y = 0; pos.y < 4; ++pos.y) {
 			if (sousRecherche(grille, it, 0, pos)) {
-				//std::cout << "Passed wtf main";
 				return true;
 			}
 		}
@@ -114,36 +95,28 @@ bool rechercherMot(Grille& grille, Item& it) {
 
 }
 
-bool checkLimites(PositionGrille& coord) {
+bool checkLimites(const PositionGrille& coord) {
 	return (coord.x > -1 && coord.y > -1 && coord.x < 4 && coord.y < 4);
 }
 
 bool sousRecherche(Grille& grille, Item& it, int pos, PositionGrille& coord) {
 
-	//std::cout << it.mot << std::endl;
-
 	if (pos >= strlen(it.mot)) {
-		//std::cout << "test1" << std::endl;
 		return true;
 	}
 
 	if (!checkLimites(coord)) {
-		//std::cout << "test2" << std::endl;
 		return false;
 	}
 		
 
 	if (grille.grille[coord.x][coord.y].lettre != it.mot[pos]) {
-		//std::cout << "test3" << std::endl;
 		return false;
 	}
 
 	if (grille.grille[coord.x][coord.y].visite == true) {
-		//std::cout << "test4" << std::endl;
 		return false;
 	}
-
-	//std::cout << "Passed at x: " << coord.x << " y: "<< coord.y << std::endl;
 
 	grille.grille[coord.x][coord.y].visite = true;
 
@@ -193,7 +166,6 @@ bool sousRecherche(Grille& grille, Item& it, int pos, PositionGrille& coord) {
 
 	for (unsigned int i = 0; i < nbCoord; ++i) {
 		if (sousRecherche(grille, it, pos + 1, pCoord[i])) {
-			//std::cout << "Passed wtf";
 			return true;
 		}
 	}

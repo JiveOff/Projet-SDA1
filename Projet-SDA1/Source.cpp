@@ -171,9 +171,8 @@ void exo5() {
 }
 
 void exo6() {
-	
-	Liste depart = readGrille();
-	Grille grille = createGrille(depart);
+
+	Grille grille = createGrille();
 
 	Liste l;
 	initialiser(l, 100, 200);

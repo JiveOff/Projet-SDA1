@@ -7,4 +7,8 @@
 
 #include "Item_t.h"
 
+/**
+ * @brief Saisie d'un élément du flux clavier à un Item.
+ * @return L'item saisie.
+ */
 Item saisie();

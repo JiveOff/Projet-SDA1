@@ -8,18 +8,45 @@
 #include "GrilleBoggle_s.h"
 #include "Liste.h"
 
-unsigned int calculPointGlobal(Liste& l);
+/**
+ * @brief Calcul des points "boggle" d'un seul item.
+ * @param[in] it L'item.
+ * @return Le nombre de points.
+ */
+unsigned int calculPoint(const Item it);
 
-unsigned int calculPoint(Item it);
+/**
+ * @brief Calcul des points "boggle" d'une liste entière.
+ * @param[in] l La liste.
+ * @return Le nombre de points.
+ */
+unsigned int calculPointGlobal(const Liste& l);
 
-Liste readGrille();
+/**
+ * @brief Création d'une grille avec une liste de départ (4x4) tapée au clavier.
+ * @return Une grille (un tableau deux dimensions contenu dans la structure).
+ */
+Grille createGrille();
 
-Grille createGrille(Liste& depart);
+/**
+ * @brief Vérifie si une position est bien dans les limites d'une grille boggle.
+ * @param[in] coord La position d'une grille.
+ * @return Un booléen: 1 indique que la position est dans les limites, sinon 0.
+ */
+bool checkLimites(const PositionGrille& coord);
 
-void afficherGrille(const Grille& grille);
-
+/**
+ * @brief Recherche un Item (mot) dans une grille donnée.
+ * @param[in,out] grille La grille de lettres.
+ * @param[in] it L'item (mot) à rechercher dans la grille donnée.
+ * @return Une grille (un tableau deux dimensions contenu dans la structure).
+ */
 bool rechercherMot(Grille& grille, Item& it);
 
-bool checkLimites(PositionGrille& coord);
-
+/**
+ * @brief Fonction de sous-recherche utilisée dans rechercheMot.
+ * @param[in,out] grille La grille de lettres.
+ * @param[in] it L'item (mot) à rechercher dans la grille donnée.
+ * @return Une grille (un tableau deux dimensions contenu dans la structure).
+ */
 bool sousRecherche(Grille& grille, Item& it, int pos, PositionGrille& coord);
