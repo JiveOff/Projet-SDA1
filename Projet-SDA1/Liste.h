@@ -6,7 +6,16 @@
  */
 
 #include "ConteneurTDE.h"
-#include "Liste_s.h"
+
+ /**
+  * @brief Structure Liste.
+  */
+struct Liste {
+	/// Conteneur mémorisant les éléments de la liste.
+	ConteneurTDE c;
+	/// Nombre d'éléments stockés dans la liste.
+	unsigned int nb;
+};
 
 /**
  * @brief Initialiser une liste vide, la liste est allouée en mémoire dynamique.

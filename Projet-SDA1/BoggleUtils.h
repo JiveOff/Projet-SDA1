@@ -5,8 +5,30 @@
  * @brief Utilitaires pour la mise en oeuvre du boggle.
  */
 
-#include "GrilleBoggle_s.h"
 #include "Liste.h"
+
+/**
+  * @brief Définition du type structure pour une seule lettre de la grille.
+  */
+typedef struct LettreGrille {
+	bool visite;
+	char lettre;
+} LettreGrille;
+
+/**
+  * @brief Structure permettant de déclarer une position dans la grille.
+  */
+struct PositionGrille {
+	int x = 0;
+	int y = 0;
+};
+
+/*
+* @brief Structure présentant un tableau deux dimensions pour la grille.
+*/
+struct Grille {
+	LettreGrille grille[4][4];
+};
 
 /**
  * @brief Calcul des points "boggle" d'un seul item.

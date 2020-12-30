@@ -18,6 +18,55 @@
 using namespace std;
 
 /*
+* Tests unitaires
+*/
+
+void tests() {
+
+	Liste l_1;
+	initialiser(l_1, 1, 2);
+
+	for (int i = 0; i < 10; ++i) {
+		Item it;
+		sprintf_s(it.mot, "test%d", i);
+		inserer(l_1, longueur(l_1), it);
+	}
+
+	assert(longueur(l_1) == 10);
+	assert(strcmp(lire(l_1, 3).mot, "test3") == 0);
+	
+	Item it_test;
+	strcpy_s(it_test.mot, "test2");
+	assert(getByItem(l_1, it_test) == 2);
+
+	Liste l_2;
+
+	initialiser(l_2, 1, 2);
+
+	Item it;
+	strcpy_s(it.mot, "test");
+
+	for (int i = 0; i < 5; ++i) {
+		inserer(l_2, longueur(l_2), it);
+	}
+	for (int i = 0; i < 4; ++i) {
+		Item it_2;
+		sprintf_s(it_2.mot, "test%d", i);
+		inserer(l_2, longueur(l_2), it_2);
+	}
+
+	assert(occurences(l_2, it) == 5);
+
+	auto filtre = [](Liste& l, Item& it) {
+		int index = getByItem(l, it);
+		return (index > -1);
+	};
+
+	assert(longueur(filtrer(l_1, l_2, filtre)) == 4);
+
+}
+
+/*
 * Structure imposée
 */
 
@@ -151,9 +200,9 @@ void exo5() {
 	Liste lFinal;
 	initialiser(lFinal, 1, 2);
 
-	for (unsigned int i = 0; i < l.nb; ++i) {
+	for (unsigned int i = 0; i < longueur(l); ++i) {
 		if (occurences(l, l.c.tab[i]) >= 2) {
-			inserer(lFinal, lFinal.nb, l.c.tab[i]);
+			inserer(lFinal, longueur(lFinal), l.c.tab[i]);
 		}
 	}
 
@@ -179,7 +228,7 @@ void exo6() {
 
 	entreeEtoile(l);
 
-	for (unsigned int i = 0; i < l.nb; ++i) {
+	for (unsigned int i = 0; i < longueur(l); ++i) {
 		if (rechercherMot(grille, l.c.tab[i])) {
 			afficher(l, i);
 		}
@@ -192,6 +241,8 @@ void exo6() {
 int main() {
 
 	setlocale(LC_ALL, "");
+
+	tests();
 
 	int num;
 	cin >> num;

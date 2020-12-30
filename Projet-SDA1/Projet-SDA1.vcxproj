@@ -142,7 +142,6 @@
     <ClCompile Include="BoggleUtils.cpp" />
     <ClCompile Include="ConteneurListe.cpp" />
     <ClCompile Include="ConteneurTDE.cpp" />
-    <ClCompile Include="GrilleBoggle_s.h" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Liste.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -150,14 +149,10 @@
   <ItemGroup>
     <ClInclude Include="BoggleUtils.h" />
     <ClInclude Include="ConteneurListe.h" />
-    <ClInclude Include="ConteneurListe_s.h" />
     <ClInclude Include="ConteneurTDE.h" />
-    <ClInclude Include="ConteneurTDE_s.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Item_t.h" />
     <ClInclude Include="Liste.h" />
-    <ClInclude Include="Liste_s.h" />
-    <ClInclude Include="Mot_s.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

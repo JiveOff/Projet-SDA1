@@ -1,10 +1,12 @@
 #pragma once
 
 /**
- * @file ConteneurListe_s.h
- * @brief Définition du type Item.
+ * @file Item_t.h
+ * @brief DÃ©finition du type Item.
  */
 
-#include "Mot_s.h"
+struct Mot {
+	char mot[31];
+};
 
 typedef Mot Item;

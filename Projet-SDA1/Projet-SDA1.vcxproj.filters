@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\structs">
-      <UniqueIdentifier>{0d4b4fd8-0ce7-4904-82e2-b2c7a70dbd25}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\typedefs">
       <UniqueIdentifier>{0168a41c-0f1b-4de8-bcf7-690d4552c22d}</UniqueIdentifier>
     </Filter>
@@ -27,9 +24,6 @@
     </Filter>
     <Filter Include="Fichiers d%27en-tête\utils">
       <UniqueIdentifier>{3fe8a3ab-a832-4f77-b50c-02334f36844c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\utils\boggle">
-      <UniqueIdentifier>{339f65a9-a8f1-4264-b915-812c152461ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,9 +45,6 @@
     <ClCompile Include="ConteneurListe.cpp">
       <Filter>Fichiers sources\def</Filter>
     </ClCompile>
-    <ClCompile Include="GrilleBoggle_s.h">
-      <Filter>Fichiers d%27en-tête\structs</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConteneurTDE.h">
@@ -62,29 +53,17 @@
     <ClInclude Include="Liste.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ConteneurTDE_s.h">
-      <Filter>Fichiers d%27en-tête\structs</Filter>
-    </ClInclude>
     <ClInclude Include="Item_t.h">
       <Filter>Fichiers d%27en-tête\typedefs</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Mot_s.h">
-      <Filter>Fichiers d%27en-tête\structs</Filter>
-    </ClInclude>
-    <ClInclude Include="BoggleUtils.h">
-      <Filter>Fichiers d%27en-tête\utils\boggle</Filter>
-    </ClInclude>
-    <ClInclude Include="Liste_s.h">
-      <Filter>Fichiers d%27en-tête\structs</Filter>
-    </ClInclude>
     <ClInclude Include="ConteneurListe.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ConteneurListe_s.h">
-      <Filter>Fichiers d%27en-tête\structs</Filter>
+    <ClInclude Include="BoggleUtils.h">
+      <Filter>Fichiers d%27en-tête\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
